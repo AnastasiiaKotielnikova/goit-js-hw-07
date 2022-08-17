@@ -37,7 +37,7 @@ function onModalOpen(evt) {
     <img src="${evt.target.dataset.source}" width="1280" height="960">
 `);
   instance.show();
-  addEventListener('keydown', onEscapePress);
+  galleryContainer.addEventListener('keydown', onEscapePress);
 
   function onEscapePress(evt) {
     const ESC_KEY_CODE = 'Escape';
@@ -45,6 +45,7 @@ function onModalOpen(evt) {
 
     if (isEscape) {
       instance.close();
+      galleryContainer.removeEventListener('keydown', onEscapePress);
     }
   }
 }
